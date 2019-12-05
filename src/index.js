@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-function runWithAdal(app) {
+async function runWithAdal(app) {
     await new Promise(resolve => setTimeout(resolve, 500));
 
     var href = window.location.href.split("#")[0];
