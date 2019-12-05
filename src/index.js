@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function runWithAdal(app) {
+    await new Promise(resolve => setTimeout(resolve, 500));
+
     var href = window.location.href.split("#")[0];
     if (href !== `${window.location.origin}/login-start` && href !== `${window.location.origin}/login-end`) {
         if (!authContext.getCachedToken(authContext.config.clientId) || !authContext.getCachedUser()) {
