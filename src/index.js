@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import * as microsoftTeams from "@microsoft/teams-js";
-import "./index.css";
 
 import { authContext } from "./adal/adalConfig";
 
@@ -13,8 +12,8 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-async function runWithAdal(app) {
-    await new Promise(resolve => setTimeout(resolve, 500));
+export function runWithAdal(app) {
+    setTimeout(console.log("----"), 500);
 
     var href = window.location.href.split("#")[0];
     if (href !== `${window.location.origin}/login-start` && href !== `${window.location.origin}/login-end`) {

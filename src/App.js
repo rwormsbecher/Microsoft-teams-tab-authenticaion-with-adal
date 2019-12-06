@@ -6,6 +6,8 @@ import { Home } from "./components/Home";
 import { LoginStart } from "./components/LoginStart";
 
 export default class App extends React.Component {
+    static displayName = App.name;
+
     render() {
         return (
             <BrowserRouter>
