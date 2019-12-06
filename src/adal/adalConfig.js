@@ -2,7 +2,7 @@ import { AuthenticationContext, adalFetch } from "react-adal";
 import * as microsoftTeams from "@microsoft/teams-js";
 
 export const adalConfig = {
-    clientId: "fe2eed8-5785-47ca-971d-e1b03304db0d",
+    clientId: "eeab99a8-18cb-4916-bf72-a74c349d676f",
     redirectUri: `${window.location.origin}/login-end`,
     endpoints: {
         graphApi: "https://graph.microsoft.com/"
