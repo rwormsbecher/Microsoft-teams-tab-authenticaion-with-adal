@@ -7,7 +7,7 @@ import { authContext } from "./adal/adalConfig";
 microsoftTeams.initialize();
 
 document.addEventListener("DOMContentLoaded", function() {
-    runWithAdalCustom(() => {
+    runWithAdal(() => {
         require("./indexApp.js");
     });
 });
@@ -38,7 +38,7 @@ async function runWithAdal(app) {
 
                         ReactDOM.render(
                             <React.Fragment>
-                                <button onClick={() => runWithAdalCustom(app)}>Login</button>
+                                <button onClick={() => runWithAdal(app)}>Login</button>
                             </React.Fragment>,
 
                             rootElement
