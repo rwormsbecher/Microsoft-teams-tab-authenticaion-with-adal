@@ -1,17 +1,17 @@
-import React from "react";
+import React, { Component } from "react";
 import { authContext } from "../adal/adalConfig";
 import Loader from "react-loader-spinner";
 import * as microsoftTeams from "@microsoft/teams-js";
 
 import "./loginScreenStyles.css";
 
-export class LoginEnd extends React.Component {
+export class LoginEnd extends Component {
     componentDidMount() {
-        // callback includes the token hash.
+        // if the callback includes the hash for the redirect.
         if (authContext.isCallback(window.location.hash)) {
             authContext.handleWindowCallback(window.location.hash);
 
-            // whether there is a user in the cacheStorage
+            // check whether the user was able to sign in.
             if (authContext.getCachedUser()) {
                 microsoftTeams.authentication.notifySuccess();
             } else {
@@ -22,7 +22,7 @@ export class LoginEnd extends React.Component {
 
     render() {
         return (
-            <div className="load-spinner-container">
+            <div class="load-spinner-container">
                 <Loader type="Oval" color="#3A97DD" height={80} width={80} />
             </div>
         );
