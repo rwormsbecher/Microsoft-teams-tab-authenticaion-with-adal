@@ -2,7 +2,8 @@ import React from "react";
 import { authContext } from "../adal/adalConfig";
 import Loader from "react-loader-spinner";
 import * as microsoftTeams from "@microsoft/teams-js";
-// TODO import styles
+
+import "./loginScreenStyles.css";
 
 export class LoginEnd extends React.Component {
     componentDidMount() {

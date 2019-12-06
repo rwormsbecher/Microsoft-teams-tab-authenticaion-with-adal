@@ -3,7 +3,7 @@ import { authContext } from "../adal/adalConfig";
 import Loader from "react-loader-spinner";
 import * as microsoftTeams from "@microsoft/teams-js";
 
-// TODO styling
+import "./loginScreenStyles.css";
 
 export class LoginStart extends React.Component {
     constructor(props) {

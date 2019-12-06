@@ -23,7 +23,7 @@ async function runWithAdal(app) {
                 url: `${window.location.origin}/login-start`,
                 width: 600,
                 height: 535,
-                successCallback: () => {
+                successCallback: result => {
                     let idToken = authContext.getCachedToken(authContext.config.clientId);
                     if (idToken) {
                         app();
