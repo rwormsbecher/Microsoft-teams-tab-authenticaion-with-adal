@@ -12,9 +12,9 @@ export default class App extends React.Component {
         return (
             <BrowserRouter>
                 <Switch>
-                    <Route exact path="/" Component={Home} />
-                    <Route path="/login-start" Component={LoginStart} />
-                    <Route exact path="/login-end" Component={LoginEnd} />
+                    <Route exact path="/" component={Home} />
+                    <Route path="/login-start" component={LoginStart} />
+                    <Route exact path="/login-end" component={LoginEnd} />
                 </Switch>
             </BrowserRouter>
         );

@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-export async function runWithAdalCustom(app) {
+async function runWithAdal(app) {
+    // add timeout so that we dont get a login screen on init
     await new Promise(resolve => setTimeout(resolve, 500));
 
     var href = window.location.href.split("#")[0];
