@@ -7,13 +7,13 @@ import { authContext } from "./adal/adalConfig";
 microsoftTeams.initialize();
 
 document.addEventListener("DOMContentLoaded", function() {
-    runWithAdal(() => {
+    runWithAdalCustom(() => {
         require("./indexApp.js");
     });
 });
 
-export function runWithAdal(app) {
-    setTimeout(console.log("----"), 500);
+export async function runWithAdalCustom(app) {
+    await new Promise(resolve => setTimeout(resolve, 500));
 
     var href = window.location.href.split("#")[0];
     if (href !== `${window.location.origin}/login-start` && href !== `${window.location.origin}/login-end`) {
@@ -27,18 +27,19 @@ export function runWithAdal(app) {
                     if (idToken) {
                         app();
                     } else {
-                        console.log("Error, could not retrieve the cached id token.");
+                        console.error("Error getting cached id token.");
                     }
                 },
                 failureCallback: reason => {
                     if (reason === "CancelledByUser" || reason === "FailedToOpenWindow") {
                         const rootElement = document.getElementById("root");
-                        console.log("A popup blocker blocked our popup");
+                        console.log("Login was blocked by popup blocker or canceled by user.");
 
                         ReactDOM.render(
                             <React.Fragment>
-                                <button onClick={() => runWithAdal(app)}>Login!</button>
+                                <button onClick={() => runWithAdalCustom(app)}>Login</button>
                             </React.Fragment>,
+
                             rootElement
                         );
                     }
